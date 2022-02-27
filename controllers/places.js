@@ -40,6 +40,7 @@ router.get('/:id/edit', (req, res) => {
 
 // Redirect to Place's Show Page
 router.put('/:id', (req, res) => {
+  console.log('hi')
   let id = Number(req.params.id)
   if (isNaN(id)) {
       res.render('error404')
