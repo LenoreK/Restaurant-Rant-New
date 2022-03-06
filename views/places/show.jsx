@@ -2,6 +2,58 @@ const React = require('react')
 const Def = require('../default')
 
 function show () {
+  function show (data) {
+    function show (data) {
+      let comments = (
+        <h3 className="inactive">
+          No comments yet!
+        </h3>
+      )
+      if (data.place.comments.length) {
+        comments = data.place.comments.map(c => {
+          return (
+            <div className="border">
+              <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
+              <h4>{c.content}</h4>
+              <h3>
+                <stong>- {c.author}</stong>
+              </h3>
+              <h4>Rating: {c.stars}</h4>
+              <form method="POST" action="/places">
+                <div className='form-group'>
+                    <label for="author">Place Name</label>
+                    <input type='text' className='form-control' id="author" name="author" required/>
+                </div>
+                <div className='form-group'>
+                    <label For="content">Content</label>
+                    <input type='textarea' className='form-control' id="content" name="content" />
+                </div>
+                <div class="rating">
+                  <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                  <label for="star5">☆</label>
+                  <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                  <label for="star4">☆</label>
+                  <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                  <label for="star3">☆</label>
+                  <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                  <label for="star2">☆</label>
+                  <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                  <label for="star1">☆</label>
+                  <div class="clear"></div>
+                </div>
+                <div className='form-group'>
+                    <label For="rant">Rant</label>
+                    <input type='checkbox' className='form-control' id="rant" name="rant" />
+                </div>
+                <div>
+                  <input type='submit' vlaue='Submit'></input>
+                </div>
+            <input className='btn btn-primary' type="submit" value="Add Place" />
+            </form>
+            </div>
+          )
+        })
+      }
     return (
         <Def>
           <main>
